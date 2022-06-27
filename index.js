@@ -98,10 +98,10 @@ const state = {
 function render(){
 
   
-  displayStoreItems()
+
   displayCartItems()
   renderTotal()
-  plusCount()
+  displayStoreItems()
   
 }
 render()
@@ -132,6 +132,10 @@ function displayStoreItems(){
   
   let btnEl = document.createElement("button")
   btnEl.textContent = "Add to cart"
+  btnEl.addEventListener("click", ()=>{
+    item.amount++
+    render()
+  })
 
   ulEl.append(liEl)
   liEl.append(divEl,btnEl)
@@ -158,6 +162,10 @@ function displayCartItems(){
    let minusBtnEl = document.createElement("button")
    minusBtnEl.className = "quantity-btn remove-btn center"
    minusBtnEl.textContent = "-"
+   minusBtnEl.addEventListener("click", ()=>{
+    item.amount--
+    render()
+   })
 
    let spanEl = document.createElement("span")
    spanEl.className = "quantity-text center"
@@ -166,23 +174,34 @@ function displayCartItems(){
    let plusBtnEl = document.createElement("button")
    plusBtnEl.className = "quantity-btn add-btn center"
    plusBtnEl.textContent = "+"
+   plusBtnEl.addEventListener("click", ()=>{
+    item.amount++
+    render()
+   })
+   let spanEl2 = document.querySelector("total-number")
+   
    ulEl.append(liEl)
    liEl.append(imgEl,pEl,minusBtnEl,spanEl,plusBtnEl)}
 }
 
 
-function plusCount(){
-  let plusBtnEl = document.querySelector(".quantity-btn.add-btn.center")
-  let items = state.storeItems
-  plusBtnEl.addEventListener("click", function () {
-    items.amount++;
-    render();
-  });
+
+// function plusCount(){
+//   let plusBtnEl = document.querySelector(".quantity-btn.add-btn.center")
+//   let items = state.storeItems
+//   plusBtnEl.addEventListener("click", function () {
+//     items[0].amount++;
+//     render();
+//   });
    
-  } 
+// } 
 
 
-function minusCount(){}
+
+
+function minusCount(){
+  
+  }
 
 
     
