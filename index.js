@@ -15,21 +15,24 @@ const state = {
     name :"beetroot",
     price : 1,
     image: "assets/icons/001-beetroot.svg",
-    alt :"beetroot"
+    alt :"beetroot",
+    amount : 0
   },
   {
     id : 2 ,
     name :"carrot",
     price : 1,
     image : "assets/icons/002-carrot.svg",
-    alt :"carrot"
+    alt :"carrot",
+    amount : 0
   },
   {
     id : 3 ,
     name :"apple",
     price : 1,
     image : "assets/icons/003-apple.svg",
-    alt :"apple"
+    alt :"apple",
+    amount : 0
   },
   {
     id : 4 ,
@@ -87,10 +90,11 @@ const state = {
 
 function render(){
 
-   
+  
   displayStoreItems()
   displayCartItems()
   renderTotal()
+  plusCount()
 }
 render()
 
@@ -102,6 +106,7 @@ function renderTotal(){
   }
   console.log(sum)
 }
+
 
 function displayStoreItems(){
   
@@ -129,8 +134,10 @@ function displayStoreItems(){
 
 function displayCartItems(){
   let ulEl = document.querySelector(".cart--item-list")
+  
 
   for (let item of state.storeItems){
+    ulEl.textContent = ""
    let liEl = document.createElement("li")
    let imgEl = document.createElement("img")
    imgEl.className = "cart--item-icon"
@@ -146,7 +153,7 @@ function displayCartItems(){
 
    let spanEl = document.createElement("span")
    spanEl.className = "quantity-text center"
-   spanEl.textContent = "1"
+   spanEl.textContent = "0"
   
    let plusBtnEl = document.createElement("button")
    plusBtnEl.className = "quantity-btn add-btn center"
@@ -157,8 +164,15 @@ function displayCartItems(){
 
 
 function plusCount(){
-  let plusBtnEl = document.querySelector("")
+  let plusBtnEl = document.querySelector(".quantity-btn.add-btn.center")
+  plusBtnEl.addEventListener("click",function () {
+   let spanEl = document.querySelector(".quantity-text.center")
+   
+   spanEl.textContent = amount + 1
+   
+  } )
 }
+
 function minusCount(){}
 
 
