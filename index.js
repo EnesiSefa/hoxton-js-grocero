@@ -21,63 +21,63 @@ const state = {
     id : 2 ,
     name :"carrot",
     price : 1,
-    Image : "assests/icons/002-carrot.svg",
+    image : "assets/icons/002-carrot.svg",
     alt :"carrot"
   },
   {
     id : 3 ,
     name :"apple",
     price : 1,
-    Image : "assests/icons/003-apple.svg",
+    image : "assets/icons/003-apple.svg",
     alt :"apple"
   },
   {
     id : 4 ,
     name :"apricot",
     price : 1,
-    Image : "assests/icons/004-apricot.svg",
+    image : "assets/icons/004-apricot.svg",
     alt :"apricot"
   },
   {
     id : 5 ,
     name :"avocado",
     price : 1,
-    Image : "assests/icons/005-avocado.svg",
+    image : "assets/icons/005-avocado.svg",
     alt : "avocado"
   }, 
   {
     id : 6 ,
     name :"bananas",
     price : 1,
-    Image : "assests/icons/006-bananas.svg",
+    image : "assets/icons/006-bananas.svg",
     alt : "bananas"
   }, 
   {
     id : 7 ,
     name :"bell-pepper",
     price : 1,
-    Image : "assests/icons/007-bell-pepper.svg",
+    image : "assets/icons/007-bell-pepper.svg",
     alt : "bell-pepper"
   },
   {
     id : 8 ,
     name :"berry",
     price : 1,
-    Image : "assests/icons/008-berry.svg",
+    image : "assets/icons/008-berry.svg",
     alt :"berry"
   },
   {
     id : 9 ,
     name :"blueberry",
     price : 1,
-    Image : "assests/icons/009-blueberry.svg",
+    image : "assets/icons/009-blueberry.svg",
     alt :"blueberry"
   },
   {
     id : 10 ,
     name :"eggplant",
     price : 1,
-    Image : "assests/icons/010-eggplant.svg",
+    image : "assets/icons/010-eggplant.svg",
     alt :"eggplant"
   },
 ]
@@ -105,7 +105,7 @@ function renderTotal(){
 
 function displayStoreItems(){
   
- for(let items of state.storeItems) {
+ for(let item of state.storeItems) {
   let ulEl = document.querySelector(".store--item-list")
 
   let liEl = document.createElement("li")
@@ -114,8 +114,8 @@ function displayStoreItems(){
   divEl.className = "store--item-icon"
   
   let imgEl = document.createElement("img")
-  imgEl.src = items.image
-  imgEl.alt = items.alt
+  imgEl.src = item.image
+  imgEl.alt = item.alt
   
   let btnEl = document.createElement("button")
   btnEl.textContent = "Add to cart"
@@ -130,15 +130,15 @@ function displayStoreItems(){
 function displayCartItems(){
   let ulEl = document.querySelector(".cart--item-list")
 
-  for (let items of state.storeItems){
+  for (let item of state.storeItems){
    let liEl = document.createElement("li")
    let imgEl = document.createElement("img")
    imgEl.className = "cart--item-icon"
-   imgEl.src = items.image
-   imgEl.alt = items.alt
+   imgEl.src = item.image
+   imgEl.alt = item.alt
 
    let pEl = document.createElement("p")
-   pEl.textContent = items.name
+   pEl.textContent = item.name
   
    let minusBtnEl = document.createElement("button")
    minusBtnEl.className = "quantity-btn remove-btn center"
