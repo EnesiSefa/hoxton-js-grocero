@@ -66,10 +66,13 @@ const state = {
 
 
 function render(){
-  document.body.textContent = ""
 
-   renderTotal()
+   
+  displayStoreItems()
+  displayCartItems()
+  renderTotal()
 }
+render()
 
 function renderTotal(){
    let sum = 0;
@@ -79,11 +82,9 @@ function renderTotal(){
   }
   console.log(sum)
 }
-
-
 function displayStoreItems(){
   
-  let ulEl = document.querySelector(".item-list store--item-list")
+  let ulEl = document.querySelector(".store--item-list")
 
   let liEl = document.createElement("li")
   
@@ -103,5 +104,36 @@ function displayStoreItems(){
 }
 
 
+function displayCartItems(){
+  let ulEl = document.querySelector(".cart--item-list")
+
+  let liEl = document.createElement("li")
+  let imgEl = document.createElement("img")
+  imgEl.className = "cart--item-icon"
+  imgEl.src = "assets/icons/001-beetroot.svg"
+  imgEl.alt = "beetroot"
+
+  let pEl = document.createElement("p")
+  pEl.textContent = "beetroot"
   
+  let minusBtnEl = document.createElement("button")
+  minusBtnEl.className = "quantity-btn remove-btn center"
+  minusBtnEl.textContent = "-"
+
+  let spanEl = document.createElement("span")
+  spanEl.className = "quantity-text center"
+  spanEl.textContent = "1"
+  
+  let plusBtnEl = document.createElement("button")
+  plusBtnEl.className = "quantity-btn add-btn center"
+  plusBtnEl.textContent = "+"
+  ulEl?.append(liEl)
+  liEl.append(imgEl,pEl,minusBtnEl,spanEl,plusBtnEl)
+}
+
+
+function plusCount(){}
+function minusCount(){}
+
+
     
