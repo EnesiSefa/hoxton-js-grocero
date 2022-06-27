@@ -39,49 +39,56 @@ const state = {
     name :"apricot",
     price : 1,
     image : "assets/icons/004-apricot.svg",
-    alt :"apricot"
+    alt :"apricot",
+    amount : 0
   },
   {
     id : 5 ,
     name :"avocado",
     price : 1,
     image : "assets/icons/005-avocado.svg",
-    alt : "avocado"
+    alt : "avocado",
+    amount : 0
   }, 
   {
     id : 6 ,
     name :"bananas",
     price : 1,
     image : "assets/icons/006-bananas.svg",
-    alt : "bananas"
+    alt : "bananas",
+    amount : 0
   }, 
   {
     id : 7 ,
     name :"bell-pepper",
     price : 1,
     image : "assets/icons/007-bell-pepper.svg",
-    alt : "bell-pepper"
+    alt : "bell-pepper",
+    amount : 0
   },
   {
     id : 8 ,
     name :"berry",
     price : 1,
     image : "assets/icons/008-berry.svg",
-    alt :"berry"
+    alt :"berry",
+    amount : 0
   },
   {
     id : 9 ,
     name :"blueberry",
     price : 1,
     image : "assets/icons/009-blueberry.svg",
-    alt :"blueberry"
+    alt :"blueberry",
+    amount : 0
   },
   {
     id : 10 ,
     name :"eggplant",
     price : 1,
     image : "assets/icons/010-eggplant.svg",
-    alt :"eggplant"
+    alt :"eggplant",
+    amount : 0
   },
 ]
 }
@@ -95,6 +102,7 @@ function render(){
   displayCartItems()
   renderTotal()
   plusCount()
+  
 }
 render()
 
@@ -153,7 +161,7 @@ function displayCartItems(){
 
    let spanEl = document.createElement("span")
    spanEl.className = "quantity-text center"
-   spanEl.textContent = "0"
+   spanEl.textContent = item.amount
   
    let plusBtnEl = document.createElement("button")
    plusBtnEl.className = "quantity-btn add-btn center"
@@ -165,13 +173,14 @@ function displayCartItems(){
 
 function plusCount(){
   let plusBtnEl = document.querySelector(".quantity-btn.add-btn.center")
-  plusBtnEl.addEventListener("click",function () {
-   let spanEl = document.querySelector(".quantity-text.center")
+  let items = state.storeItems
+  plusBtnEl.addEventListener("click", function () {
+    items.amount++;
+    render();
+  });
    
-   spanEl.textContent = amount + 1
-   
-  } )
-}
+  } 
+
 
 function minusCount(){}
 
